@@ -1,0 +1,439 @@
+@charset "UTF-8";
+/*css 初始化 */
+
+html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset {
+    margin: 0;
+    padding: 0;
+}
+fieldset,img,input,button {
+    border:none;
+    padding: 0;
+    margin: 0;
+    outline-style: none;
+}
+ul,ol {
+    list-style: none;
+}
+input {
+    padding-top:0;
+    padding-bottom: 0;
+    font-family: "Simsum","宋体";
+}
+select,input {
+    vertical-align:middle;
+}
+select,input,textarea {
+    font-size: 12px;
+    margin: 0;
+}
+textarea {
+    resize: none; /* 防止多行文本拖动 */
+}
+
+img {
+    border:0;
+    vertical-align: middle; /* 去掉图片底侧默认的3px像素空白间隙 */
+}
+
+table {
+    border-collapse: collapse;
+
+}
+body {
+    font:12px/150% Arial,Verdana, "\5b8b\4f53";
+    color:#666;
+    background: #fff;
+}
+.clearfix:before,.clearfix:after {
+    content:"";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+a {
+    color: #666;
+    text-decoration: none;
+}
+a:hover {
+    /* a链接鼠标放上去颜色变化 */
+    color: #C81623;
+}
+h1, h2, h3, h4, h5, h6 {
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 100%;
+}
+s, i, em {				
+    font-style: normal;
+    text-decoration: none;
+}
+.col-red {
+    color: #C81623 !important;
+}
+
+/*公共类*/
+.w {
+    /*版心 提取*/
+    width: 1210px;
+    margin: 0 auto;
+    /* position: relative; */
+}
+.fl {
+    /* position: absolute;
+    left: 50px; */
+    float: left;
+}
+.fr {
+    /* position: absolute;
+    right: 50px; */
+    float: right;
+}
+.al {
+    text-align: left;
+}
+.ac {
+    text-align: center;
+}
+.ar {
+    text-align: right;
+}
+.hide {
+    display: none;
+}
+
+
+/* site-nav部分开始 */
+.site-nav {
+    height: 30px;
+    line-height: 30px;
+    background-color: #f1f1f1;
+}
+.site-nav-send,
+.site-nav-r .fore {
+    position: relative;
+    padding: 0 25px 0 10px; /* padding:0;会被搭上一条横线，因为权限问题 */
+}
+.site-nav-send:hover {
+    background: #fff;
+}
+.site-nav-send i,
+.fore i {
+    position: absolute;
+    top:12px;
+    right: 8px;
+    width: 15px;
+    height: 7px;
+    overflow: hidden;
+    font: 400px 13px/15px "consolas";   /*字体大小为400(默认值) 像素13px，行高35px，字体格式："consolas" */
+}
+.site-nav-send s,
+.fore s {
+    position: absolute;
+    top: -14px;
+    /* 老师的代码是top:-7px; */
+}
+.site-nav-r li {
+    padding: 0 10px;
+    float: left;
+}
+.site-nav-r .line {
+    width: 1px;
+    height: 12px;
+    background-color: #ddd;
+    margin-top: 9px;
+    padding: 0;  /* padding:0;会被搭上一条横线，因为权限问题 */
+}
+.site-nav-r .jd-tel {
+    padding-left: 25px;  /* 只是这样的话样式会被覆盖的。权重问题，一个样式名还不行，必须两个，再加上.site-nav-r */
+}
+.jd-tel span {
+    position: absolute;
+    /* 行内元素不能直接设置宽高，改为块级元素。不过有了position：absolute了就不用display: block;这个了 */    
+    width: 18px;
+    height: 20px;
+    top: 5px;
+    left: 5px;
+    background: url("../images/tel.png");
+}
+/* site-nav部分结束 */
+
+/* topbanner样式开始 */
+.topbanner {
+    background-color: #fd6500;
+}
+.tb {
+    position: relative;
+}
+.close-banner {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 19px;
+    height: 19px;
+    background: url("../images/close-banner.png")
+}
+.close-banner:hover {
+    background-position: bottom;
+}
+/* topbanner样式结束 */
+
+/* search搜索栏开始 */
+.search-logo {
+    float: left;
+    width: 362px;
+    height: 60px;
+    padding: 20px 0;
+}
+.search-logo a {
+    width: 270px;
+    height: 60px;
+    display: block;
+    text-indent: -9999px;/* 文字移除。也不要给太大值，否则容易出现bug。 */
+    background: url("../images/logo.png") no-repeat;
+}
+.search-input {
+    float: left;
+    /* width: 538px; */
+    height: 36px;
+    padding-top: 25px;
+    /* background-color: blue; */
+}
+.search-input input {
+    float: left;
+    width: 450px;
+    height: 32px;
+    padding-left: 4px;
+    font:400 14px/32px "microsoft yahei";
+    color: rgba(153, 153, 153);
+    border: 2px solid #b61d1d;
+    border-right: 0;
+}
+.search-input button {
+    width: 82px;
+    height: 36px;
+    background: #b61d1d;
+    color: #fff;
+    font: 400 16px/36px "微软雅黑"; /*字体大小为400 像素16px，行高36px，字体格式：微软雅黑 */
+    cursor: pointer;
+    /*cursor: pointer;          变成小手*/
+    /*cursor: text;             变成光标*/
+    /*cursor: move;             变成四角箭头*/
+    /*cursor: default;          变成小白*/
+}
+.search-car {
+    position: relative;
+    float: left;
+    width: 96px;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 43px;
+    margin: 25px 65px 0 0;   /* 最后一个数要不要改为100px？或者57px*/
+    border:1px solid #dfdfdf;
+    background-color: #f9f9f9;
+}
+.icon1 {
+    position: absolute;
+    top: 9px;
+    left: 15px;
+    width: 18px;
+    height: 16px;
+    background: url("../images/tel.png") no-repeat 0 -58px;
+}
+.icon2 {
+    position: absolute;
+    right: 10px;
+    color: #999999;
+    font: 13px/34px "SimSun";
+}
+.icon3 {
+    position: absolute;
+    /* top: -5px; */
+    width: 16px;
+    height: 14px;
+    background-color: #c81623;
+    line-height: 14px;
+    text-align: center;
+    color: #fff;
+    border-radius: 8px 8px 8px 0;
+    /* border-radius: 50% 50% 50% 0;   左上-->右上-->右下-->左下*/
+
+}
+.search-moreAlink {
+    float: left;
+    width: 538px;
+    height: 28px;
+    line-height: 28px;
+}
+.search-moreAlink a {
+    margin-left: 8px;
+}
+/* search搜索栏结束 */
+
+/* shortcut-nav开始 */
+.shortcut-nav {
+    width: 100%;
+    height: 44px;
+    border-bottom: 2px solid #b1191a;
+}
+.shortcut-nav-menu { /*撑开和撑破是两回事：撑开说明盒子变成那么大，撑破盒子还是那么大，子盒子很大。*/
+    width: 210px;
+    height: 44px;  
+    /*浮动的盒子相互影响，不过是否在同一个盒子中*/
+    background-color: pink;
+    float: left;
+    position: relative;
+    z-index: 1;
+}
+.shortcut-nav-menu-all a {
+    /* 要么浮动，要么定位，要么display:block */
+    display: block;
+    width: 190px;
+    height: 44px;
+    padding: 0 10px;
+    background-color: #b1191a;
+    color: white;
+    font: 400 15px/44px "microsoft yahei";
+}
+.shortcut-nav-menu-one {
+    /* width: 210px;可以不写，继承父盒子的高 */
+    height: 467px;
+    margin-top: 2px;
+    background-color: #c81623;
+    border:1px solid #b1191a;
+}
+.shortcut-nav-menu-one div {
+    height: 31px;
+    padding: 0 10px;
+    color:#fff;
+    font: 400 14px/31px "microsoft yahei";
+}
+.shortcut-nav-menu-one div:hover {
+    background-color: #fff;
+    /* 鼠标放在div上背景颜色变白 */
+}
+.shortcut-nav-menu-one div:hover a {
+    color: #C81623;
+    /* 鼠标放在div上字体颜色变红 */
+}
+.shortcut-nav-menu-one h3 {
+    float: left;
+}
+.shortcut-nav-menu-one a {
+    color: #fff;
+    /* font: 400 14px/31px "microsoft yahei";*/  /*行高不要乱用，行高甚至还和字体样式有影响。*/
+}
+.shortcut-nav-menu-one i {
+    float: right;
+    color:#fff;
+    font: 400 9px/31px "concolas";  
+    /* 特殊符号字体： 谷歌只支持12号以上（太小不支持），以下的话怎么调整都不会变化的，以上的话会变化*/
+}
+.shortcut-nav-items {
+    width: 730px;
+    height: 44px;
+    float: left;
+    color: #333333;
+    font: 400 16px/44px "microsoft yahei";
+}
+.shortcut-nav-items li {
+    float: left;
+}
+.shortcut-nav-items a {
+    display: inline-block;
+    height: 44px;
+    padding: 0 20px;
+}
+.shortcut-nav-items a:hover {
+    color: #C81623;
+}
+.shortcut-nav-img {
+    width: 200px;
+    height: 44px;
+    float: right;
+    margin-top: -13px;  /*这行代码的功能等价于 position: relative; left: -50px;  top: -10px;*/
+    margin-right: 50px;
+    background-color: red;
+    /* position: relative;
+    left: -50px; 
+    top: -10px; */
+}
+/* shortcut-nav结束 */
+
+
+
+/* footer开始 */
+.footer-top-slogen {
+    width: 100%;
+    height: 54px;
+    position: relative;
+    padding: 20px 0;
+    margin-bottom: 16px;
+    /* background-color: #f5f5f5; */
+    background-color:yellow;
+}
+.footer-top-slogen-icon {
+    position: absolute;
+    /* top: 20px; 注释这个的话，上面的高度由94px变为54px，并且加上padding:20px 0;这样才等价*/
+    left: 50%;
+    /* 这个是第三张图片 icon3 位置是0，第二张向左-302px，第一张向左-604px，第四张向右302px*/
+}
+.footer-top-slogen-icon1 {
+    margin-left: -604px;
+}
+.footer-top-slogen-icon2 {
+    margin-left: -302px;
+}
+.footer-top-slogen-icon4 {
+    margin-left: 302px;
+}
+.footer-top-shopping dl {
+    float: left;
+    width: 200px;
+}
+dl.last-dl {
+    width: 100px;
+}
+.footer-top-shopping dt,
+.coverage h3 {
+    height: 34px;
+    font:400 16px/34px "microsoft yahei";
+}
+.footer-top-shopping dd {
+    line-height: 20px;
+}
+.coverage {
+    width: 186px;
+    height: 169px;
+    float: right;
+    background: url("../images/china.png") no-repeat left bottom;
+    margin-right: 60px;
+    padding-left: 17px;
+}
+.coverage p {
+    padding-top: 8px;
+}
+.coverage a {
+    float: right;
+}
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px 0 30px;
+    /* border-bottom: 1px solid #e5e5e5; */
+    border-top: 1px solid red;
+
+}
+.footer-bottom-links a {
+    margin: 0 10px;
+}
+.footer-bottom-copyright {
+    padding: 10px 0;
+}
+.footer-bottom-img a {
+    margin: 0 20px;
+}
+/* footer结束 */

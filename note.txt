@@ -1,0 +1,218 @@
+引用样式的顺序
+    公共样式要放在最上面，然后再到
+    如：
+    <link rel="stylesheet" href="CSS/base.css">
+    <link rel="stylesheet" href="CSS/index.css">
+图片和图标的区别
+
+设置网站图标 <link rel="icon" href="./jd.ico"> 
+
+    1. www.baidu.com ------>www.baidu .com/favicon.icon
+        只要在网站后面加上favicon.icon就能自动获得该网站的图标
+    2. 或者专门制作图标的网站www.biticon.com
+文件初始化
+    设置基本样式
+CSS关键就在于布局
+    从左到右，从上到下
+===========================================
+第一天上午：导航栏，两部分(左右)
+    任务：制作第一行导航栏的左边部分，也就是送至：北京的 “◇”部分的倒三角小图标。
+        还有一个长方形□，用□和◇这两个的相对位置来设置，□盖住◇的上半部分，只露出下半部分的箭头
+        (□是父级，而◇对于□来说是子级。<i><s>◇</s></i>)
+            .site-nav-send i {  //一般选择器不要超过三个，三个还不行的话就选择其它的选择器吧。
+                position: absolute;
+                top:12px;
+                right: 8px;
+                width: 15px;
+                height: 7px;
+                overflow: hidden;  //超出的部分就把他隐藏起来。
+            }
+            .site-nav-send s {
+                position: absolute;
+                top: -14px;
+                font: 400px 13px/15px "consolas";  /* 400是默认值 */
+            }
+第一天下午
+    导航栏
+        1. ul>li*10
+        2. 手机京东的精灵图，了解一下。
+        3. topbanner顶部导航栏图片制作
+            注意看，这个图片宽度没有完全平铺在浏览器上，咋办？注意看这个图片的两端的颜色(假如红色)，
+            那么我们就给他设置背景颜色也为红色，看起来效果就好像是本来这个图片完全平铺一样。
+            -------------------
+            3.1旁边还有个关闭的小精灵图，相对定位和绝对定位来做。
+            3.2本来这个精灵图颜色很淡，鼠标放上去变化
+                1.通过颜色来改变
+                2.通过位置来改变，让另一个颜色更深的精灵图出来。background-position:bottom。
+        4.搜索栏部分。版心：
+            左(LOGO)+中上(输入框)+中下(链接)+右(购物车)四部分组成
+            4.1：(左)LOGO
+                添加文字
+                文字移除 text-indent:-9999px;(这个值也不要太大，否则容易出bug)
+                加链接(a标签)
+                LOGO图片做a标签的背景图
+                .search-logo {
+                    float: left;
+                    width: 362px;
+                    height: 60px;
+                    padding: 20px 0;
+                }
+                .search-logo a {
+                    width: 270px;
+                    height: 60px;
+                    display: block;
+                    text-indent: -9999px;/* 文字移除。也不要给太大值，否则容易出现bug。 */
+                    background: url("../images/logo.png") no-repeat;
+                }
+            4.2：(中上1)输入框
+                输入框原本带有值：1.value="请输入..."； 2.placeholder="请输入..."(这种方法不建议现在用)
+                .search-input input {
+                    float: left;
+                    width: 450px;
+                    height: 32px;
+                    padding-left: 4px;
+                    font:400 14px/32px "microsoft yahei";
+                    color: rgba(153, 153, 153);
+                    border: 2px solid #b61d1d;
+                    border-right: 0;
+                }
+                .search-input {
+                    float: left;
+                    /* width: 538px; */
+                    height: 36px;
+                    padding-top: 25px;
+                    /* background-color: blue; */
+                }
+            4.3：(中上2)输入框旁边的搜索按钮
+                .search-input button {
+                    width: 82px;
+                    height: 36px;
+                    background: #b61d1d;
+                    color: #fff;
+                    font: 400 16px/36px "微软雅黑"; /*字体大小为400 像素16px，行高36px，字体格式：微软雅黑 */
+                    cursor: pointer;
+                        /*cursor: pointer;          变成小手*/
+                        /*cursor: text;             变成光标*/
+                        /*cursor: move;             变成四角箭头*/
+                        /*cursor: default;          变成小白*/
+                }
+            4.4：(右)购物车
+                1.购物车图标icon1：精灵图完成
+                2.购物车切换icon2：&gt;
+                3.购物车数量icon3：(红色标识)
+            4.5：(中下)search-moreAlink
+                文字不参与浮动，标准流中的文字不会被浮动中的文字遮住
+                一个父盒子
+第二天上午
+    页面底部footer设置
+    1. footer-top
+        1.1 footer-top-slogen
+            清除浮动的原因：
+                父盒子高度为零，子盒子全都浮动、定位，子盒子不会撑开父盒子，下面的元素就会到子盒子的下面
+            问题：父盒子高度为0，子盒子不占位置，子盒子不会撑开父盒子。
+            (下面的标准流盒子，会跑到父盒子中的子盒子下面。)
+            处理办法：清除浮动。（清除子盒子因为浮动，对父子造成的影响）
+            使用方法：谁出问题给谁加一个clearfix类名。
+            -----------------------------
+            清除浮动：
+                1. clear: both;
+                2. overflow:hidden
+                3. 加空标签
+                4. 单伪元素/双伪元素标签法
+            --------------------
+            文字居中：
+                纵向居中：line-height:10px;
+                横向居中：text-align:center;
+            盒子居中：
+                一个盒子情况：
+                多个盒子情况：
+            样式=======================
+                .footer-top-slogen-icon {
+                    position: absolute;
+                    /* top: 20px; 注释这个的话，上面的高度由94px变为54px，并且加上padding:20px 0;这样才等价*/
+                    left: 50%;
+                    /* 这个是第三张图片 icon3 位置是0，第二张向左-302px，第一张向左-604px，第四张向右302px*/
+                }
+                .footer-top-slogen-icon1 {
+                    margin-left: -604px;
+                }
+                .footer-top-slogen-icon2 {
+                    margin-left: -302px;
+                }
+                .footer-top-slogen-icon4 {
+                    margin-left: 302px;
+                }
+        1.2 footer-top-shopping
+            表格形式制作
+    2. footer-bottom
+        2.1 footer-bottom-links
+        2.2 footer-bottom-copyright
+        2.3 footer-bottom-img
+第二天下午=============
+    快速导航栏
+    1. 左边菜单(重点)
+        1.1 鼠标放上去背景颜色改变：
+            .shortcut-nav-menu-one div:hover {
+                background-color: #fff;
+            }
+        1.2 鼠标放上去字体颜色改变：
+            .shortcut-nav-menu-one div:hover a {
+                color: #C81623;
+            }
+        
+    2. 中间商品列表
+    3. 右边图片
+第三天上午========主题核心部分 
+    轮播图：
+        1.轮播图下面的小圆点 ul>li*6 总共6个
+            1.1 设置宽高-->变成园-->距离margin--背景颜色、字体颜色---鼠标放上去变成小手。
+            1.2 怎么居中：绝对定位+向左移动本身的一半。
+                    一半是多少？6个li的width(或者height)+他们的margin ==== 2*(18px + 2px) =132px，再向左移动一半：-66px
+            1.3 鼠标点击时和和点击后的颜色变化
+                用类选择器来控制
+                    鼠标放在谁身上，除了他以外，其他的样式清零
+                    例如有6个li，放在第一个li上，则2-5的li的样式清零
+        2.轮播图左右的切换小三角
+            a链接的href的值各是什么？
+                1. href=""   什么都写的时候  
+                    效果：刷新页面(所以至少写个井号)
+                2. href="#"                 
+                    效果：跳转到页面最顶端     
+                3. href="javascript:void(0)" 简写为： "javascript:;" 
+                    效果：啥都没有，既不会刷新页面，也不会跳转到顶端回来 === 相当于阻止a链接跳转
+                4. href="http://www.baidu.com"                   
+                    效果：跳转到所写的网站
+        权限问题：
+            left的权限大于right，同时设置的话right的属性不起作用
+            top的权限大于bottom 类似上面
+        透明度问题
+            opacity: 0.5; 优点方便，缺点就是里面的内容也透明了
+            rgba(0,0,0,0.5)；  rgba就是red,green,blue,alpha
+        ----------------------------
+    盒子隐藏问题
+        1. overflow: hidden;  隐藏盒子超出的部分
+        2. display: none; 隐藏盒子，而且不占位置。（用得最多）
+        3. visibility:hidden; 隐藏盒子，并且占位置
+        4. opacity: 0; 隐藏盒子，并且占位置(透明度隐藏)
+        5. position/top/left/....:-9999px;  隐藏盒子，并且占位置(子绝父相定位，就是移动把盒子移走隐藏了)
+        6. margin-left;  同上
+    浮动的盒子问题
+        浮动的盒子比标准盒子高，但是能够遮挡住住标准流盒子，遮挡不住里面的文字和图片
+    -----------------------------------
+    右边的京东快报
+        结构分析
+            1.京东快报
+            ----1.1 京东快报
+            --------1.1.1 京东快报
+            --------1.1.2 新闻
+            ----1.2 购买详请
+            2. 图片
+        1.京东快报
+            实线、虚线、点线：solid、dashed、dotted
+            行高不要乱用，行高甚至还和字体样式有影响。
+                line-height有时候还会和font产生冲突
+                行内元素尽量不要给font标签
+        2.购买详请
+            父盒子宽度不够，并且子盒子放到不掉下来
+                就要给子盒子和父盒子之间再给出另一个盒子(介于两者之间)，该盒子只给宽度。
+

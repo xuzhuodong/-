@@ -1,0 +1,181 @@
+@charset "UTF-8";
+
+/*main主题部分开始*/
+.main-slider {
+    float: left;
+    width: 730px;
+    height: 454px;
+    position: relative;
+    margin: 12px 0 0 220px; /*220px是与屏幕左边的距离*/
+    /* 子盒子不占位置，父盒子高度为零，导致下面的盒子顶上来，引起混乱。
+    解决办法：清除放浮动 */
+}
+.main-slider ul {
+    position: absolute;
+    left: 50%;
+    margin-left: -66px;  
+    /* 每个18px,加上2px的margin 总共6个=1332px，要向左移动一半就是-66px*/
+    /* left: 299px; 或者直接设置它的左边具有盒子299px === 父盒子的width：730 减去 6个li的长度132 == 598 ，然后再除以2就等于一半了 */
+    bottom: 10px;
+}
+.main-slider li {
+    float: left;
+    width: 18px;
+    height: 18px;
+    color: #fff;
+    border-radius: 50%;
+    margin: 0 2px;
+    line-height: 18px;
+    text-align: center;
+    background-color: #3e3e3e;
+    cursor: pointer;
+}
+.main-slider .current {
+    /* 一个current选择器还不行，权重不够大，再随便加上另一个，如：.mian-slider */
+    background-color: red;
+}
+.arrow a {
+    position: absolute; /*子绝父相，在main-slider已经设置相对定位了。*/
+    top: 50%;
+    /* left: 0; 这里不能写。因为left的权限大于right，同时设置的话right的属性不起作用 */
+    margin-top: -31px;
+    width: 28px;
+    height: 62px;
+    background: rgba(0, 0, 0, .3);
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    font: 400 22px/62px "simsun";
+}
+.arrow a:hover {
+    background: rgba(0, 0, 0,.7);
+}
+.arrow-left {
+    left: 0;
+}
+.arrow-right {
+    right: 0;
+}
+
+.main-news {
+    float: right;
+    height: 464px;
+    width: 250px;
+}
+
+.main-news img {  /*这个代码是我自己加上去的*/
+    width: 250px;
+    height: 66px;
+}
+.main-news-top {
+    height: 372px;
+    width: 248px;
+    overflow: hidden;
+    margin: 12px 0 5px 0;
+    border: 1px solid #e4e4e4;
+}
+.main-top-faster {
+    height: 163px;
+    border-bottom: 1px dashed #e4e4e4;
+}
+.main-top-faster-title {
+    height: 32px;
+    line-height: 32px;
+    padding: 0 15px;
+    font: 400 16px/32px "microsoft yahei";
+    border-bottom: 1px dotted #e8e8e7;
+}
+.main-top-faster-title h3 {
+    float: left;
+}
+.main-top-faster-title a {
+    float: right;
+    font-family: "consolas";
+}
+.main-top-faster-content {
+    padding: 5px 0 0 15px;
+}
+.main-top-faster-content li {
+    line-height: 24px;
+}
+.main-top-faster-content span {
+    font-weight: 700;
+    margin-right: 5px;
+}
+.main-top-money ul {
+    width: 260px;
+}
+.main-top-money li {
+    width: 62px;
+    height: 70px;
+    float: left;;
+    margin-left: -1px;
+    margin-top: -1px;
+    border: 1px solid #e8e8e7;
+    border-top: 0;
+}
+.main-top-money a {
+    position: relative;/* 不能给行内元素设置宽高，所以在注释掉display:block后，后面的宽高设置就无意义了 */
+    display: block;
+    width: 62px;
+    height: 70px;
+    text-align: center;
+    padding-top: 40px;
+    line-height: 30px;
+} 
+.main-top-money i {
+    position: absolute;
+    top: 12px;
+    left: 17px;
+    width: 25px;
+    height: 25px;
+    background: url(../images/fly3.png) no-repeat;
+}
+.main-top-money .main-news-top-money-icon2 {
+    background-position: 0 -45px;
+}
+.main-top-money .main-news-top-money-icon3 {
+    background-position: 0 -90px;
+}
+.main-top-money .main-news-top-money-icon4 {
+    background-position: 0 -135px;
+}
+.main-top-money .main-news-top-money-icon5 {
+    background-position: 0 -175px;
+}
+.main-top-money .main-news-top-money-icon6 {
+    background-position: 0 -220px;
+}
+.main-top-money .main-news-top-money-icon7 {
+    background-position: 0 -261px;
+}
+.main-top-money .main-news-top-money-icon8 {
+    background-position: 0 -307px;
+}
+.main-top-money .main-news-top-money-icon9 {
+    background-position: 0 -350px;
+}
+.main-top-money .main-news-top-money-icon10 {
+    background-position: 0 -395px;
+}
+.main-top-money .main-news-top-money-icon11 {
+    background-position: 0 -440px;
+}
+.main-top-money .main-news-top-money-icon12 {
+    background-position: 0 -484px;
+}
+/*main主题部分结束*/
+
+
+
+/*today主题部分开始*/
+.today-left {
+    float: left;
+}
+.today-right {
+    float: right;
+}
+/*today主题部分结束*/
+
+/*main主题部分开始*/
+/*main主题部分结束*/
